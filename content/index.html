@@ -1,0 +1,12 @@
+---
+title: Home
+---
+
+<p>This is a portable digital library of booklets, posters, and zines that preserve and promote DIY culture, direct action, and mutual aid to build a society free from rulership, exploitation, and oppression around the world. <img src="/images/zine_layout.png" style="float: right; height: 200px; width: auto; padding: 10px;"> Below are some introductions to get you started, or you can select a topic to the left for more in-depth materials.</p>
+
+<p><strong>The materials in these collections are laid out for printing and binding into booklets.</strong></p>
+
+<p>In order to read them on your screen, you'll need to follow the zig-zag pattern to the right. Start on the right-hand side of page 1, then read the left-hand side of page 2, then back and forth until you reach the end. At the end, switch, and move page by page back towards the beginning.</p>
+
+<% media = items_with_tag('introduction') %>
+<%= render '/media.*', :media => media %>

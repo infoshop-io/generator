@@ -1,0 +1,9 @@
+---
+title: Veganism
+description: |
+  Veganism is a diet that doesn't include animal products.
+frontpage: true
+---
+
+<% media = items_with_tag('veganism') %>
+<%= render '/media.*', :media => media %>

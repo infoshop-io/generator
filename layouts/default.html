@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Infoshop<% if @item[:title] %>: <%= @item[:title] %><% end %></title>
+
+    <link rel="stylesheet" href="/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/stylesheets/skeleton.css">
+    <link rel="stylesheet" href="/stylesheets/stylesheet.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns header">
+          <h1><a href="/">Infoshop</a><% if @item[:title] %>: <%= @item[:title] %><% end %></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="ten columns content">      
+          <%= yield %>
+        </div>
+        <div class="two columns sidebar">
+          
+          <h2>Topics</h2>
+
+          <ul>
+            <% items.select{|i| i.identifier =~ /\/topics\/.+/}
+                    .select{|topic| topic.attributes[:frontpage] == true}
+                    .sort{|a,b| a.attributes[:title] <=> b.attributes[:title]}
+                    .each do |topic| %>
+              <li>
+                <a href="<%= topic.identifier.without_ext %>/index.html"><%= topic.attributes[:title] %></a>
+                <span class="count">
+                  <%= items_with_tag(topic.identifier.without_ext.to_s.gsub('/topics/', '')).length %>
+                </span>
+              </li>
+            <% end %>
+          </ul>
+
+          <h2>Distribution</h2>
+
+          <p>Anti-copyright, distribute freely</p>
+
+          <dl>
+            <dt>Online</dt>
+            <dd><a href="http://infoshop.io/">http://infoshop.io/</a></dd>
+
+            <dt>Download</dt>
+            <dd><a href="/archives/Infoshop.zip">Infoshop.zip</a></dd>
+
+            <dt>Source Code</dt>
+            <dd><a href="/archives/Infoshop.io.zip">Infoshop.io.zip</a></dd>
+          </dl>
+
+          <h2>Praxis</h2>
+
+          <ol>
+            <li>Educate</li>
+            <li>Agitate</li>
+            <li>Organize</li>
+            <li>Confront</li>
+          </ol>
+
+          <img src="/images/black-flag.png" alt="Black Flag Image"/>
+
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

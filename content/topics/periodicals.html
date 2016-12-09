@@ -1,0 +1,9 @@
+---
+title: Periodicals
+description: |
+  Periodicals are works of literature that are released in a series.
+frontpage: true
+---
+
+<% media = items_with_tag('periodicals') %>
+<%= render '/media.*', :media => media %>

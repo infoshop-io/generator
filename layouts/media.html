@@ -1,0 +1,59 @@
+<% if item && item.attributes[:description] %>
+<p><%= item.attributes[:description] %></p>
+<% end %>
+
+<% if media %>
+  <% media.sort{|a,b| a.attributes[:title] <=> b.attributes[:title]}.each do |media| %>
+    <div class="media">
+    <hr />
+
+      <% cover_image = media.identifier.without_ext.to_s.gsub(/^\/media\//, "/images/covers/") + '.jpeg' %>
+      <% cover_image_path = `pwd`.chomp + "/content" + cover_image %>
+      <% unless File.file?(`pwd`.chomp + "/content" + cover_image) %>
+        <% system( "gs -sDEVICE=jpeg -dLastPage=1 -dNOPAUSE -dBATCH -r96 -dFirstPage=1 -sOutputFile=\"" + cover_image_path + "\" \"" + `pwd`.chomp + "/content" + media.identifier.to_s + "\"" ) %>
+    <% end %>
+      <% if File.file?(cover_image_path) %>
+    <a href="<%= media.identifier.to_s %>">
+      <img src="<%= cover_image %>" class="cover" alt="Cover image" />
+    </a>
+    <% end %>
+
+      <h2><a href="<%= media.identifier.to_s %>"><%= media.attributes[:title] %></a></h2>
+
+
+      <% if media.attributes[:summary] %>
+      <p><%= media.attributes[:summary] %></p>
+      <% end %>
+
+    <p>
+        <strong>Topics</strong>:
+        <%= media.attributes[:tags].map{|topic| "<a href=\"/topics/#{topic}/index.html\">#{topic}</a>" }.join(', ')%><br />
+
+        <% if media.attributes[:authors] %>
+        <strong>Authors</strong>:
+        <%= media.attributes[:authors].join(', ') %><br />
+        <% end %>
+
+        <% if media.attributes[:editors] %>
+        <strong>Editors</strong>:
+        <%= media.attributes[:editors].join(', ') %><br />
+        <% end %>
+
+        <% if media.attributes[:publisher] %>
+        <strong>Publisher</strong>:
+        <%= media.attributes[:publisher] %><br />
+        <% end %>
+
+        <% if media.attributes[:date] %>
+        <strong>Date</strong>:
+        <%= media.attributes[:date] %><br />
+        <% end %>
+
+        <% if media.attributes[:sources] %>
+        <strong>Sources</strong>:
+        <%= media.attributes[:sources].map{|source| "<a href=\"#{source}\">#{source}</a>" }.join(', ') %>
+        <% end %>
+    </p>
+    </div>
+  <% end %>
+<% end %>

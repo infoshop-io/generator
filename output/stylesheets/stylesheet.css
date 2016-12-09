@@ -1,0 +1,97 @@
+body {
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  color: #f30;
+}
+
+a:hover {
+  color: #f90;
+}
+
+.row .header {
+  padding: 2em 0em 1em 0em;
+  border-bottom: 7px solid #333;
+  margin-bottom: 1.5em;
+}
+
+.header h1 {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.content hr {
+  border: 0;
+  height: 5px;
+  background: #EEE;
+}
+
+.content h2 {
+  font-size: 24px;
+}
+
+.content img.cover {
+  width: 300px;
+  height: auto;
+  margin: 0em 0em 0em 2em;
+  border: 5px solid #EEE;
+  float: right;
+}
+
+.content dt {
+  font-weight: bold;
+}
+
+.content dd {
+  margin-left: 0em;
+  margin-bottom: 0.25em;
+}
+
+.content .media {
+  min-height: 290px;
+}
+
+.sidebar img {
+  height: 100px;
+  width: 100px;
+  padding: 0em 0em 1em 0em;
+}
+
+.sidebar h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  margin: 20px 0;
+}
+
+.sidebar li {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.sidebar dt {
+  font-weight: bold;
+}
+
+.sidebar dd {
+  margin-left: 0em;
+  margin-bottom: 1em;
+}
+
+.sidebar .count {
+  color: #999;
+  border: 1px solid #DDD;
+  padding: 0.1em 0.25em;
+}

@@ -1,0 +1,9 @@
+---
+title: Posters
+description: |
+  These are single-page works of art and reference.
+frontpage: true
+---
+
+<% media = items_with_tag('posters') %>
+<%= render '/media.*', :media => media %>
