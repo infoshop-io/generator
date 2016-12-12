@@ -3,9 +3,6 @@ set -e
 set -x
 git push origin master
 bundle exec nanoc compile
-mkdir -p output/archives
-rm -f output/archives/Infoshop.zip
-zip -r output/archives/Infoshop.zip content/media/*.pdf
 cd site
 git pull origin master
 cp -rv ../output/* .
