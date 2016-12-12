@@ -8,28 +8,28 @@ Installation
 
 First, install the prerequisites and clone this codebase
 
-	# [Ruby Version Manager](http://rvm.io/)
+	# [Ruby Version Manager](http://rvm.io/) and [Ruby](http://ruby-lang.org/)
+
 	$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 	$ \curl -sSL https://get.rvm.io | bash -s stable
+	$ rvm install ruby-2.2.6
 
-	# [Homebrew](http://brew.sh/)
+	# [Homebrew](http://brew.sh/), Ghostscript, and ImageMagick
+
 	$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-	# Ghostscript and ImageMagick
 	$ brew install gs
 	$ brew install imagemagick
 
 	# This generator codebase
+
 	$ git clone git@github.com/infoshop-io/generator
 	$ cd generator
-
-Second, building Ruby 2.2.6 if you need, then install any necessary gems
-
-	$ rvm install ruby-2.2.6
+	$ git submodule init
+	$ git submodule update
     $ gem install bundler
     $ bundle install
 
-Finally, in two different terminal windows, run guard and nanoc view:
+Next, in two different terminal windows, run guard and nanoc view:
 
     $ bundle exec guard
     $ bundle exec nanoc view
@@ -58,7 +58,7 @@ To add a resource to the infoshop, move the PDF file into `content/media` with a
 	  - SOURCE_URLS_OPTIONAL
 	---
 
-Anything tagged with "introduction" will appear on the landing page.
+Anything tagged with "introduction" will appear on the landing page. Check the entry in your browser to make sure it looks right--that's the step that generates the preview image.
 
 Deployment
 ----------
