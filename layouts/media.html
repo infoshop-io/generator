@@ -27,11 +27,13 @@
 
     <p>
         <strong>Topics</strong>:
-        <%= media.attributes[:tags].map{|topic| "<a href=\"/topics/#{topic}/index.html\">#{topic}</a>" }.join(', ')%><br />
+        <%= media.attributes[:tags].sort.map{|topic| "<a href=\"/topics/#{topic}/index.html\">#{topic}</a>" }.join(', ')%><br />
 
-        <% if media.attributes[:authors] %>
         <strong>Authors</strong>:
-        <%= media.attributes[:authors].join(', ') %><br />
+        <% if media.attributes[:authors] %>
+        <%= media.attributes[:authors].sort.join(', ') %><br />
+        <% else %>
+        <em>Anonymous</em><br />
         <% end %>
 
         <% if media.attributes[:editors] %>

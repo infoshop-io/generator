@@ -1,0 +1,9 @@
+---
+title: Art
+description: |
+  Works of art inspiring and inspired by anarchism.
+frontpage: true
+---
+
+<% media = items_with_tag('art') %>
+<%= render '/media.*', :media => media %>

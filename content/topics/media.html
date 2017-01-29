@@ -1,0 +1,9 @@
+---
+title: Media
+description: |
+  Media are tools of mass-communication
+frontpage: true
+---
+
+<% media = items_with_tag('media') %>
+<%= render '/media.*', :media => media %>

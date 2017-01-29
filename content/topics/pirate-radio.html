@@ -1,0 +1,9 @@
+---
+title: Pirate Radio
+description: |
+  Pirate radio is a radio station that broadcasts without permission.
+frontpage: true
+---
+
+<% media = items_with_tag('pirate-radio') %>
+<%= render '/media.*', :media => media %>
